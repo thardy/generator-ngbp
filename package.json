@@ -1,0 +1,48 @@
+{
+  "name": "generator-ngbp",
+  "version": "0.0.1",
+  "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for any scale Angular project built on a highly modular, folder-by-feature structure.",
+  "keywords": [
+    "yeoman-generator",
+    "angular",
+    "angularjs",
+    "boilerplate",
+    "ngboilerplate",
+    "scaffold",
+    "enterprise",
+    "framework",
+    "module",
+    "client",
+    "app"
+  ],
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "thardy/generator-ngbp",
+  "author": {
+    "name": "Tim Hardy",
+    "email": "",
+    "url": "https://github.com/thardy"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

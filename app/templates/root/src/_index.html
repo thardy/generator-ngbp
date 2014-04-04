@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="<%= projectName %>" ng-controller="AppController">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><%% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%%= file %>" /><%% }); %>
+
+    <!-- compiled JavaScript --><%% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%%= file %>"></script><%% }); %>
+</head>
+<body>
+    <header>
+        <nav class="container navbar-default">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="home">Home</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="about">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" ui-view="main"></div>
+
+    <footer class="container">
+        (c) <%%= date %> <%%= author %>
+    </footer>
+</body>
+</html>
