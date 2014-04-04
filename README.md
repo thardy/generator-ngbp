@@ -18,7 +18,7 @@ $ mkdir my-new-project
 $ cd my-new-project
 ```
 
-Finally, initiate the generator:
+Initiate the generator:
 
 ```
 $ yo ngbp
