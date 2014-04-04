@@ -27,7 +27,7 @@ $ yo ngbp
 ### Sub-Generators
 
 There's only one subgenerator at the moment
-    - ngbp:module
+    ngbp:module
 
 To create a new module...
 
@@ -35,7 +35,7 @@ To create a new module...
 $ yo ngbp:module "moduleName"
 ```
 
-The module generator doesn't currently add your new module to the main app.js file's dependency list, which you will need to do.  Hopefully, this will be added soon.
+You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
 
 ### More Info
 

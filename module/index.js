@@ -43,10 +43,23 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         this.template('_moduleHtml.tpl.html', path.join(modulePath, this.camelModuleName + '.tpl.html'));
         this.template('_module.less', path.join(modulePath, this.camelModuleName + '.less'));
 
+        this._addModuleToAppJs(this.projectName, this.camelModuleName, this.lowerModuleName);
 //        if (this.includeRestfulService) {
 //            // Add RESTful service stuff here
 //        }
+    },
+
+    _addModuleToAppJs: function app(projectName, camelModuleName, lowerModuleName) {
+        var hook   = '])));',
+            path   = 'src/app/app.js',
+            file   = this.readFileAsString(path),
+            insert = "    '" + projectName + "." + camelModuleName + "',\n";
+
+        if (file.indexOf(insert) === -1) {
+            this.write(path, file.replace(hook, insert + hook));
+        }
     }
+
 });
 
 module.exports = ModuleGenerator;
