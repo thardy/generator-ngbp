@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var touch = require("touch");
 var yeoman = require('yeoman-generator');
 
 
@@ -44,9 +45,16 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         this.template('_module.less', path.join(modulePath, this.camelModuleName + '.less'));
 
         this._addModuleToAppJs(this.projectName, this.camelModuleName, this.lowerModuleName);
+
 //        if (this.includeRestfulService) {
 //            // Add RESTful service stuff here
 //        }
+    },
+
+    touchIndexHtml: function() {
+        // Touch the index.html file to force the index grunt task to rebuild it (that task adds the new module to the scripts)
+        var indexHtmlFilePath = 'src/index.html';
+        touch(indexHtmlFilePath, {mtime: true});
     },
 
     _addModuleToAppJs: function app(projectName, camelModuleName, lowerModuleName) {

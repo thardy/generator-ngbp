@@ -16,5 +16,5 @@
     'templates-app',
     'templates-common',
     'ui.router.state',
-    'ui.router'
+    'ui.router',
 ])));

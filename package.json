@@ -1,7 +1,7 @@
 {
   "name": "generator-ngbp",
-  "version": "0.0.4",
-  "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for any scale Angular project built on a highly modular, folder-by-feature structure.",
+  "version": "0.0.5",
+  "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.",
   "keywords": [
     "yeoman-generator",
     "angular",
@@ -32,12 +32,10 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [
-    "yeoman-generator"
-  ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "chalk": "~0.4.0",
+    "touch": "0.0.3"
   },
   "devDependencies": {
     "mocha": "*"
