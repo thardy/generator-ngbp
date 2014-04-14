@@ -1,6 +1,6 @@
 (function(app) {
 
-    app.config(function ($stateProvider) {
+    app.config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('<%= camelModuleName %>', {
             url: '/<%= lowerModuleName %>',
             views: {
@@ -11,15 +11,15 @@
             },
             data:{ pageTitle: '<%= capitalModuleName %>' }
         });
-    });
+    }]);
 
-    app.controller('<%= capitalModuleName %>Controller', function ($scope) {
+    app.controller('<%= capitalModuleName %>Controller', ['$scope', function ($scope) {
 
         var init = function() {
         };
 
         init();
-    });
+    }]);
 
 }(angular.module("<%= projectName %>.<%= camelModuleName %>", [
     'ui.router'

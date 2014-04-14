@@ -1,6 +1,6 @@
 (function(app) {
 
-    app.config(function ($stateProvider) {
+    app.config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('about', {
             url: '/about',
             views: {
@@ -11,9 +11,9 @@
             },
             data:{ pageTitle: 'About' }
         });
-    });
+    }]);
 
-    app.controller('AboutController', function ($scope) {
+    app.controller('AboutController', ['$scope', function ($scope) {
 
         var init = function() {
             // A definitive place to put everything that needs to run when the controller starts. Avoid
@@ -21,7 +21,7 @@
         };
 
         init();
-    });
+    }]);
 
 }(angular.module("<%= projectName %>.about", [
     'ui.router'
