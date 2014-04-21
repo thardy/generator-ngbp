@@ -1,12 +1,12 @@
 (function(app) {
 
     app.config(['$stateProvider', function ($stateProvider) {
-        $stateProvider.state('<%= camelModuleName %>', {
+        $stateProvider.state('<%= name %>', {
             url: '/<%= lowerModuleName %>',
             views: {
                 "main": {
                     controller: '<%= capitalModuleName %>Controller',
-                    templateUrl: '<%= lowerModuleName %>/<%= lowerModuleName %>.tpl.html'
+                    templateUrl: '<%= name %>/<%= name %>.tpl.html'
                 }
             },
             data:{ pageTitle: '<%= capitalModuleName %>' }

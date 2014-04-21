@@ -35,6 +35,8 @@ To create a new module...
 $ yo ngbp:module "moduleName"
 ```
 
+You can specify the root folder of the module via prompt - default is "app".
+
 You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
 There's also still a bug with grunt watch that doesn't always see new files in new folders - https://github.com/gruntjs/grunt-contrib-watch/issues/70. Stopping and
 re-running grunt watch will always work though.

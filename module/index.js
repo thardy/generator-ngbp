@@ -13,31 +13,37 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         console.log('Creating the module - ' + this.name);
     },
 
-//    askFor: function () {
-//        var done = this.async();
-//
-//        var prompts = [
+    askFor: function () {
+        var done = this.async();
+
+        var prompts = [
+            {
+                name: 'rootFolder',
+                message: 'Where do you want to place this module - what is the root folder?',
+                default: 'app'
+            },
 //            {
 //                type: 'confirm',
 //                name: 'includeRest',
 //                message: 'Do you want to include a REST-ful service, with basic controllers, and views?',
 //                default: false
 //            },
-//        ];
-//
-//        this.prompt(prompts, function (props) {
+        ];
+
+        this.prompt(prompts, function (props) {
+            this.rootFolder = props.rootFolder;
 //            this.includeRest = props.includeRest;
-//
-//            done();
-//        }.bind(this));
-//    },
+
+            done();
+        }.bind(this));
+    },
 
     files: function () {
         this.projectName = this.config.get('projectName');
         this.camelModuleName = this._.camelize(this.name);
         this.capitalModuleName = this._.capitalize(this.name);
         this.lowerModuleName = this.name.toLowerCase();
-        var modulePath = path.join('src', 'app', this.camelModuleName);
+        var modulePath = path.join('src', this.rootFolder, this.camelModuleName);
         this.mkdir(modulePath);
         this.template('_module.js', path.join(modulePath, this.camelModuleName + '.js'));
         this.template('_moduleSpec.js', path.join(modulePath, this.camelModuleName + '.spec.js'));
