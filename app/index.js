@@ -55,6 +55,12 @@ var NgbpGenerator = yeoman.generators.Base.extend({
             },
             {
                 type: 'confirm',
+                name: 'useCoffeescript',
+                message: 'Would you like to use Coffeescript?',
+                default: false
+            },
+            {
+                type: 'confirm',
                 name: 'includeAngularResource',
                 message: 'Do you want to include angular-resource, helpful for calling RESTful apis?',
                 default: true
@@ -64,6 +70,7 @@ var NgbpGenerator = yeoman.generators.Base.extend({
         this.prompt(prompts, function (props) {
             this.projectName = props.projectName;
             this.author = props.author;
+            this.useCoffeescript = props.useCoffeescript;
             this.includeAngularResource = props.includeAngularResource;
 
             done();
@@ -72,23 +79,33 @@ var NgbpGenerator = yeoman.generators.Base.extend({
 
     config: function() {
         this.config.set('projectName', this.projectName);
+        this.config.set('useCoffeescript', this.useCoffeescript)
         this.config.save();
     },
 
     _processDirectory: function (source, destination) {
         var root = this.isPathAbsolute(source) ? source : path.join(this.sourceRoot(), source);
         var files = this.expandFiles('**', { dot: true, cwd: root });
+        var useCoffeescript = this.config.get('useCoffeescript');
 
         for (var i = 0; i < files.length; i++) {
             var f = files[i];
-            var src = path.join(root, f);
-            if (path.basename(f).indexOf('_') == 0) {
-                var dest = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
-                this.template(src, dest);
+            var fExt = f.split('.').pop().toLowerCase();
+            var fIsSource = path.dirname(f).split('/').shift() == 'src';
+            var isExcluded = false;
+            if (fIsSource) {
+                if ((useCoffeescript && fExt == 'js') || (!useCoffeescript && fExt == 'coffee')) {isExcluded = true;}
             }
-            else {
-                var dest = path.join(destination, f);
-                this.copy(src, dest);
+            var src = path.join(root, f);
+            if (!isExcluded) {
+                if (path.basename(f).indexOf('_') == 0) {
+                    var dest = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
+                    this.template(src, dest);
+                }
+                else {
+                    var dest = path.join(destination, f);
+                    this.copy(src, dest);
+                }
             }
         }
     },
