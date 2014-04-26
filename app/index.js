@@ -79,7 +79,7 @@ var NgbpGenerator = yeoman.generators.Base.extend({
 
     config: function() {
         this.config.set('projectName', this.projectName);
-        this.config.set('useCoffeescript', this.useCoffeescript)
+        this.config.set('useCoffeescript', this.useCoffeescript);
         this.config.save();
     },
 
