@@ -71,8 +71,15 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
     _addModuleToAppJs: function app(projectName, camelModuleName, lowerModuleName) {
         var hook   = '])));',
             path   = 'src/app/app.js',
-            file   = this.readFileAsString(path),
             insert = "    '" + projectName + "." + camelModuleName + "',\n";
+
+        if (this.config.get('useCoffeescript')) {
+            hook = "'templates-app',";
+            path = 'src/app/app.coffee';
+            insert = "'" + projectName + "." + camelModuleName + "',\n  ";
+        }
+
+        var file   = this.readFileAsString(path);
 
         if (file.indexOf(insert) === -1) {
             this.write(path, file.replace(hook, insert + hook));
