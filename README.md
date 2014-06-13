@@ -2,6 +2,9 @@
 
 > Yeoman Generator based on the popular ngBoilerplate AngularJS kickstarter.  ngBoilerplate is a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.  You work in vertical slices on a daily basis (view, controller, service, etc), so why not organize your projects to optimize your workflow, maximize discoverability, and get copy-paste module reuse for free?
 
+## Update
+
+6/13/2014 - I discovered that I had forgotten to npm publish several of the latest fixes and improvements.  If you're using npm to get latest, please "npm install -g generator-ngbp" again to get the latest fixes.
 
 ## Quick Start
 
