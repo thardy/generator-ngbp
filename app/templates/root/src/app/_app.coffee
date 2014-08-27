@@ -7,17 +7,12 @@ do (app=angular.module "<%= projectName %>", [
   'ui.router',
 ]) ->
 
-  app.config [
-    '$stateProvider',
-    '$urlRouterProvider',
-    ($stateProvider, $urlRouterProvider) ->
-      $urlRouterProvider.otherwise '/home'
-  ]
+  app.config ($stateProvider, $urlRouterProvider) ->
+    $urlRouterProvider.otherwise '/home'
 
   app.run ->
 
-  app.controller 'AppController', [
-    '$scope',
-    ($scope) ->
+  app.controller 'AppController', ($scope) ->
 
-  ]
+
+

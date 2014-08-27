@@ -12,7 +12,7 @@
 do (app=angular.module "<%= projectName %>.home", [
   'ui.router'
 ]) ->
-  app.config ['$stateProvider', ($stateProvider) ->
+  app.config ($stateProvider) ->
     $stateProvider.state 'home',
       url: '/home'
       views:
@@ -21,12 +21,12 @@ do (app=angular.module "<%= projectName %>.home", [
           templateUrl: 'home/home.tpl.html'
       data:
         pageTitle: 'Home'
-  ]
+
 
   # As you add controllers to a module and they grow in size, feel free to
   # place them in their own files. Let each module grow organically, adding
   # appropriate organization and sub-folders as needed.
-  app.controller 'HomeController', ['$scope', ($scope) ->
+  app.controller 'HomeController', ($scope) ->
     init = ->
       # A definitive place to put everything that needs to run when the
       # controller starts. Avoid writing any code outside of this function
@@ -38,4 +38,4 @@ do (app=angular.module "<%= projectName %>.home", [
       alert('Congratulations')
 
     init()
-  ]
+

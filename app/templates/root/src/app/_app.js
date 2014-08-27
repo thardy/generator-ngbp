@@ -1,14 +1,14 @@
 (function(app) {
 
-    app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');
-    }]);
+    });
 
     app.run(function () {});
 
-    app.controller('AppController', ['$scope', function ($scope) {
+    app.controller('AppController', function ($scope) {
 
-    }]);
+    });
 
 }(angular.module("<%= projectName %>", [
     '<%= projectName %>.home',
