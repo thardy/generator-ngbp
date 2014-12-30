@@ -1,18 +1,7 @@
-do (app=angular.module "<%= projectName %>.about", [
-  'ui.router'
-]) ->
-  app.config ($stateProvider) ->
-    $stateProvider.state 'about',
-      url: '/about'
-      views:
-        "main":
-          controller: 'AboutController'
-          templateUrl: 'about/about.tpl.html'
-      data:
-        pageTitle: 'About'
+do (module=angular.module "<%= projectName %>.about") ->
+  module.controller 'AboutController', () ->
+    model = this
 
-
-  app.controller 'AboutController', ($scope) ->
     init = ->
       # A definitive place to put everything that needs to run
       # when the controller starts. Avoid writing any code outside

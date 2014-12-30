@@ -46,9 +46,11 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         var modulePath = path.join('src', this.rootFolder, this.camelModuleName);
         this.mkdir(modulePath);
         if(this.config.get('useCoffeescript')) {
+            this.template('_module.module.coffee', path.join(modulePath, this.camelModuleName + '.module.coffee'));
             this.template('_module.coffee', path.join(modulePath, this.camelModuleName + '.coffee'));
             this.template('_moduleSpec.coffee', path.join(modulePath, this.camelModuleName + '.spec.coffee'));
         } else {
+            this.template('_module.module.js', path.join(modulePath, this.camelModuleName + '.module.js'));
             this.template('_module.js', path.join(modulePath, this.camelModuleName + '.js'));
             this.template('_moduleSpec.js', path.join(modulePath, this.camelModuleName + '.spec.js'));
         }

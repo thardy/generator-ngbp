@@ -3,9 +3,9 @@
 <p>Code it up</p>
 
 <p>
-    <span ng-bind="someVar" />
+    <span ng-bind="model.someVar" />
     <ul>
-        <li ng-repeat="item in someList">{{item}}</li>
+        <li ng-repeat="item in model.someList">{{item}}</li>
     </ul>
-    <button class="btn btn-primary" ng-click="someFunctionUsedByTheHomePage()">Click Me</button>
+    <button class="btn btn-primary" ng-click="model.someFunctionUsedByTheHomePage()">Click Me</button>
 </p>

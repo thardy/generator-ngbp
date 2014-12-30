@@ -2,6 +2,12 @@
 
 > Yeoman Generator based on the popular ngBoilerplate AngularJS kickstarter.  ngBoilerplate is a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.  You work in vertical slices on a daily basis (view, controller, service, etc), so why not organize your projects to optimize your workflow, maximize discoverability, and get copy-paste module reuse for free?
 
+## Latest Updates
+(12/29/14) Many best-practice improvements, including use of "Controller as model" syntax, cleaner controllers, plus separate \*.module.js file for module declarations and
+grunt build support for those files.
+Coffeescript is close but broken with the *.module.coffee being included twice in resultant js file.  I could use some help from anyone who works
+in coffeescript regularly, especially coffeescript grunt builds. As always, let me know if you find anything that needs fixing.
+
 ## Quick Start
 
 Install generator-ngbp from npm, run:
