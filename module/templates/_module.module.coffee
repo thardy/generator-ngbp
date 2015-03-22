@@ -7,7 +7,7 @@ do (module=angular.module "<%= projectName %>.<%= camelModuleName %>", [
       views:
         "main":
           controller: '<%= capitalModuleName %>Controller as model'
-          templateUrl: '<%= name %>/<%= name %>.tpl.html'
+          templateUrl: '<%= path %>/<%= filePrefix %>.tpl.html'
       data:
-        pageTitle: '<%= name %>/<%= name %>.tpl.html'
+        pageTitle: '<%= capitalModuleName %>'
 
