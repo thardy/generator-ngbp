@@ -62,8 +62,8 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             var capitalModuleName = [];
             this.lowerModuleName = this.name.toLowerCase().replace('.', '/');
             this.filePrefix = this.camelModuleName.substr(this.camelModuleName.lastIndexOf('.') + 1);
-            this.path = this.camelModuleName.substr(0, this.camelModuleName.lastIndexOf('.')) + '/' + this.filePrefix;
-            modulePath = path.join('src', this.rootFolder, this.camelModuleName.replace('.', '/'));
+            this.path = this.camelModuleName.replace(/\./g, '/')
+            modulePath = path.join('src', this.rootFolder, this.path);
 
         } else {
             this.camelModuleName = this._.camelize(this.name);
