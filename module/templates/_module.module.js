@@ -1,4 +1,4 @@
-(function(module) {
+(function (module) {
 
     module.config(function ($stateProvider) {
         $stateProvider.state('<%= name %>', {
@@ -6,10 +6,12 @@
             views: {
                 "main": {
                     controller: '<%= capitalModuleName %>Controller as model',
-                    templateUrl: '<%= name %>/<%= name %>.tpl.html'
+                    templateUrl: '<%= path %>/<%= filePrefix %>.tpl.html'
                 }
             },
-            data:{ pageTitle: '<%= capitalModuleName %>' }
+            data: {
+                pageTitle: '<%= capitalModuleName %>'
+            }
         });
     });
 

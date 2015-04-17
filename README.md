@@ -42,6 +42,8 @@ $ yo ngbp:module "moduleName"
 
 You can specify the root folder of the module via prompt - default is "app".
 
+If you specify module name with a dot (e.g. account.profile), you will be prompted to confirm that you want to create a sub module. Choosing y (default), a new 'profile' module will be created in account folder.
+
 You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
 There's also still a bug with grunt watch that doesn't always see new files in new folders - https://github.com/gruntjs/grunt-contrib-watch/issues/70. Stopping and
 re-running grunt watch will always work though.
