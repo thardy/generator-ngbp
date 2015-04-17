@@ -56,6 +56,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             capitalModuleName.push(self._.capitalize(value));
         });
         this.capitalModuleName = capitalModuleName.join('');
+        this.routeFriendlyName = this.name.replace('.', '-');
 
         if (this.isSubmodule) {
             this.camelModuleName = this.name;

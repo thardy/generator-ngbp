@@ -1,7 +1,7 @@
 (function (module) {
 
     module.config(function ($stateProvider) {
-        $stateProvider.state('<%= name %>', {
+        $stateProvider.state('<%= routeFriendlyName %>', {
             url: '/<%= lowerModuleName %>',
             views: {
                 "main": {
