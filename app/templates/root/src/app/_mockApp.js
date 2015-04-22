@@ -72,4 +72,7 @@
             return null;
         }
     });
+
+// Your normal app is listed as a dependency, so all your functionality is there.  We've basically just extended it
+//  with this http interception code.
 })(angular.module('mockApp', ['<%=projectName%>', 'ngMockE2E']));
