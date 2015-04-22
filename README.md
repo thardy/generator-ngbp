@@ -50,14 +50,16 @@ You can specify the root folder of the module via prompt - default is "app".
 
 If you specify a module name with a dot (e.g. account.profile), you will be prompted to confirm that you want to create a sub module. Choosing y (default), a new 'profile' module will be created in account folder.
 
+You will be prompted whether you want your module to wrap a RESTful resource.  The default is no.
+
+You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
+
 ##### RESTful Scaffolding
-You will be prompted whether you want your module to wrap a RESTful resource.  The default is no.  If you choose yes, you will get fully scaffolded RESTful controllers, views, and a service for CRUD support, using ngResource under the covers - so don't forget to answer 'y' when asked if you want angular-resource when you generate your app, or just add it yourself.  The naming convention is currently setup to handle straightforward pluralized module names, like "products", and the scaffolding assumes an api hanging off whatever domain your spa is running on (e.g. http://mydomain.com/api/products).  Try the following...
+If you choose yes to wrap a RESTful resource, you will get fully scaffolded RESTful controllers, views, and a service for CRUD support, using ngResource under the covers - so don't forget to answer 'y' when asked if you want angular-resource when you generate your app, or just add it yourself.  The naming convention is currently setup to handle straightforward pluralized module names, like "products", and the scaffolding assumes an api hanging off whatever domain your spa is running on (e.g. http://mydomain.com/api/products).  Try the following...
 ```
 yo ngbp:module "products"
 ```
 ...type ```y``` when asked if you want to wrap a RESTful resource, then switch your ```grunt watch``` over to ```grunt watchmock``` to see a fully-working example.  Navigate to http://localhost:9000/#/products to view (there's no navigation scaffolding at this point, but the routing is there).  The mocked results for "products" are handled in a heavily-commented mockApp.js, which you can edit to mock whatever you want.
-
-You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
 
 There's also still a bug with grunt watch that doesn't always see new files in new folders - https://github.com/gruntjs/grunt-contrib-watch/issues/70. Stopping and
 re-running grunt watch will always work though.
