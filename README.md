@@ -33,7 +33,7 @@ $ yo ngbp
 ### Mocking
 You can now switch in and out of mocking mode by simply running ```grunt watchmock``` vs ```grunt watch```.  Switching between the two will handle all the necessary configuration within your SPA. Running in mock mode will use $httpBackend to intercept any external http calls you manually configure and return whatever results you want.
 
-See mockApp.js for a full CRUD example, and combine with the new RESTful module generator for a full, working, end-to-end example - great for prototyping data-driven UX with fully functional controllers and api-calling angular services without having to actually build the api first.  Simply switch back to ```grunt watch``` and your code will now be making real external calls to a real (if it exists) api.  This is my preferred mocking implementation because your code is written to actually make the http call, and the interception is handled by angular.  When you are ready to hit a real api, you have no code changes to make.
+See mockApp.js for a full CRUD example (*actually, Delete isn't in yet*), and combine with the new RESTful module generator for a full, working, end-to-end example - great for prototyping data-driven UX with fully functional controllers and api-calling angular services without having to actually build the api first.  Simply switch back to ```grunt watch``` and your code will now be making real external calls to a real (if it exists) api.  This is my preferred mocking implementation because your code is written to actually make the http call, and the interception is handled by angular.  When you are ready to hit a real api, you have no code changes to make.
 
 ### Sub-Generators
 
