@@ -3,7 +3,7 @@
 > Yeoman Generator based on the popular ngBoilerplate AngularJS kickstarter.  ngBoilerplate is a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.  You work in vertical slices on a daily basis (view, controller, service, etc), so why not organize your projects to optimize your workflow, maximize discoverability, and get copy-paste module reuse for free?
 
 ## Latest Updates
-(4/22/15) Added some pretty hefty improvements - easily switchable mocking with $httpBackend and scaffolding of RESTful resources.  See below. As always, please let me know of any issues.
+(4/22/15) Added some pretty hefty improvements - easily switchable mocking with $httpBackend and scaffolding of RESTful resources.  See below. Also updated to Angular 1.3.15 and hardcoded the bower version to avoid issues.  As always, please let me know of any issues.
 
 (12/29/14) Many best-practice improvements, including use of "Controller as model" syntax, cleaner controllers, plus separate \*.module.js file for module declarations and
 grunt build support for those files.
