@@ -1,6 +1,6 @@
 {
   "name": "generator-ngbp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.",
   "keywords": [
     "yeoman-generator",
