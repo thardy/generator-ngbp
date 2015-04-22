@@ -55,7 +55,7 @@ You will be prompted whether you want your module to wrap a RESTful resource.  T
 ```
 yo ngbp:module "products"
 ```
-and switch your ```grunt watch``` over to ```grunt watchmock``` to see a fully-working example.  Navigate to http://localhost:9000/#/products to view (there's no navigation scaffolding at this point, but the routing is there).  The mocked results for "products" are handled in a heavily-commented mockApp.js, which you can edit to mock whatever you want.
+...type ```y``` when asked if you want to wrap a RESTful resource, then switch your ```grunt watch``` over to ```grunt watchmock``` to see a fully-working example.  Navigate to http://localhost:9000/#/products to view (there's no navigation scaffolding at this point, but the routing is there).  The mocked results for "products" are handled in a heavily-commented mockApp.js, which you can edit to mock whatever you want.
 
 You have to authorize the overwrite of app.js when the subgenerator adds a dependency for your new module (the default is Y, so you can just hit enter at the prompt).
 
