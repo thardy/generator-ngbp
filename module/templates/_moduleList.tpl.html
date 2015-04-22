@@ -1,0 +1,10 @@
+<h1><%= capitalModuleName %></h1>
+<ul>
+    <li ng-repeat="<%= resourceInstance %> in model.<%= lowerModuleName %>">
+        {{<%= resourceInstance %>.name}}
+        <a class="btn btn-default" ng-href="#/<%= path %>/edit-<%= singularKebabModuleName %>/{{<%= resourceInstance %>.id}}">
+            Edit <i class="fa fa-pencil"></i>
+        </a>
+    </li>
+</ul>
+<a ng-href="#/<%= path %>/add-<%= singularKebabModuleName %>" class="btn btn-default">Add a <%= resourceName %></a>

@@ -33,9 +33,11 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
     "chalk": "~0.4.0",
+    "inflected": "^1.1.6",
+    "lodash": "^3.7.0",
     "touch": "0.0.3",
+    "yeoman-generator": "~0.16.0",
     "yo": ">=1.0.0"
   },
   "devDependencies": {
