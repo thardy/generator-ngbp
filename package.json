@@ -1,7 +1,7 @@
 {
   "name": "generator-ngbp",
-  "version": "0.1.8",
-  "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure.",
+  "version": "0.1.9",
+  "description": "Yeoman generator based on the ngBoilerplate kickstarter, a best-practice boilerplate for scalable Angular projects built on a highly modular, folder-by-feature structure. Now with easily switchable mocking via $httpBackend and RESTful resource scaffolding.",
   "keywords": [
     "yeoman-generator",
     "angular",
