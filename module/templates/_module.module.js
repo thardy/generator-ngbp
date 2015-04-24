@@ -1,5 +1,4 @@
 (function(module) {
-
     <% if (includeRest) { %>
     module.config(function ($stateProvider) {
         $stateProvider
@@ -48,7 +47,6 @@
         });
     });
     <% } %>
-
 }(angular.module('<%= projectName %>.<%= camelModuleName %>', [
     'ui.router'<% if (includeRest) { %>,
     'ngResource'<% } %>

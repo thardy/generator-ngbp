@@ -1,5 +1,4 @@
 (function(module) {
-
     <% if (includeRest) { %>
     module.controller('<%= capitalModuleName %>Controller', function (<%= resourceName %>) {
         var model = this;
@@ -31,6 +30,4 @@
         }
     });
     <% } %>
-
-
 }(angular.module("<%= projectName %>.<%= camelModuleName %>")));
