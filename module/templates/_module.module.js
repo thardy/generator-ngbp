@@ -1,5 +1,6 @@
 (function(module) {
 
+    <% if (includeRest) { %>
     module.config(function ($stateProvider) {
         $stateProvider
             .state('<%= routeFriendlyName %>', {
@@ -33,8 +34,22 @@
                 data:{ pageTitle: 'Edit <%= resourceName %>' }
             });
     });
+    <% } else { %>
+    module.config(function ($stateProvider) {
+        $stateProvider.state('<%= routeFriendlyName %>', {
+            url: '/<%= kebabModuleName %>',
+            views: {
+                "main": {
+                    controller: '<%= capitalModuleName %>Controller as model',
+                    templateUrl: '<%= path %>/<%= kebabModuleName %>.tpl.html'
+                }
+            },
+            data:{ pageTitle: '<%= capitalModuleName %>' }
+        });
+    });
+    <% } %>
 
 }(angular.module('<%= projectName %>.<%= camelModuleName %>', [
-    'ui.router',
-    'ngResource'
+    'ui.router'<% if (includeRest) { %>,
+    'ngResource'<% } %>
 ])));
