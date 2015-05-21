@@ -70,6 +70,10 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             this.path = this.name.replace(/\./g, '/')
             modulePath = path.join('src', this.rootFolder, this.path);
 
+            this.resourceInstance = inflector.singularize(_.camelCase(this._.capitalize(this.filePrefix), false));
+            this.resourceName = this._.capitalize(this.resourceInstance);
+            this.singularKebabModuleName = _.kebabCase(inflector.singularize(this.filePrefix));
+
         } else {
             this.lowerModuleName = this.name.toLowerCase();
             this.filePrefix = this.name;
@@ -108,7 +112,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         this.template('_moduleList.tpl.html', path.join(modulePath, this.filePrefix + '.tpl.html'));
         this.template('_module.less', path.join(modulePath, this.filePrefix + '.less'));
 
-        this._addModuleToAppJs(this.projectName, this.name, this.lowerModuleName);
+        this._addModuleToAppJs(this.projectName, this.camelModuleName, this.lowerModuleName);
 
         //        if (this.includeRestfulService) {
         //            // Add RESTful service stuff here
@@ -123,15 +127,15 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         });
     },
 
-    _addModuleToAppJs: function app(projectName, moduleName, lowerModuleName) {
+    _addModuleToAppJs: function app(projectName, camelModuleName, lowerModuleName) {
         var hook = '])));',
             path = 'src/app/app.js',
-            insert = "    '" + projectName + "." + moduleName + "',\n";
+            insert = "    '" + projectName + "." + camelModuleName + "',\n";
 
         if (this.config.get('useCoffeescript')) {
             hook = "'templates-app',";
             path = 'src/app/app.coffee';
-            insert = "'" + projectName + "." + moduleName + "',\n  ";
+            insert = "'" + projectName + "." + camelModuleName + "',\n  ";
         }
 
         var file = this.readFileAsString(path);

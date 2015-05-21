@@ -3,18 +3,18 @@
     module.controller('<%= capitalModuleName %>Controller', function (<%= resourceName %>) {
         var model = this;
         model.loading = false;
-        model.<%= lowerModuleName %> = [];
+        model.<%= camelModuleName %> = [];
 
         init();
 
         function init() {
-            model.<%= lowerModuleName %> = get<%= capitalModuleName %>();
+            model.<%= camelModuleName %> = get<%= capitalModuleName %>();
         }
 
         function get<%= capitalModuleName %>() {
             model.loading = true;
             <%= resourceName %>.query().$promise.then(function(response) {
-                model.<%= lowerModuleName %> = response;
+                model.<%= camelModuleName %> = response;
                 model.loading = false;
             });
         }

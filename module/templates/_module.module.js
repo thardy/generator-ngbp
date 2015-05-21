@@ -3,11 +3,11 @@
     module.config(function ($stateProvider) {
         $stateProvider
             .state('<%= routeFriendlyName %>', {
-                url: '/<%= kebabModuleName %>',
+                url: '/<%= path %>',
                 views: {
                     'main@': {
                         controller: '<%= capitalModuleName %>Controller as model',
-                        templateUrl: '<%= path %>/<%= kebabModuleName %>.tpl.html'
+                        templateUrl: '<%= path %>/<%= filePrefix %>.tpl.html'
                     }
                 },
                 data:{ pageTitle: '<%= capitalModuleName %>' }
