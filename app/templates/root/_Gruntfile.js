@@ -181,6 +181,16 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+            build_vendorcss: {
+                files: [
+                    {
+                        src: [ '<%%= vendor_files.css %>' ],
+                        dest: '<%%= build_dir %>/',
+                        cwd: '.',
+                        expand: true
+                    }
+                ]
+            },
             compile_assets: {
                 files: [
                     {
@@ -506,7 +516,7 @@ module.exports = function(grunt) {
              */
             gruntfile: {
                 files: 'Gruntfile.js',
-                tasks: [ 'jshint:gruntfile', 'clean:vendor', 'copy:build_vendorjs', 'index:build' ],
+                tasks: [ 'jshint:gruntfile', 'clean:vendor', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build' ],
                 options: {
                     livereload: false
                 }
@@ -611,7 +621,7 @@ module.exports = function(grunt) {
     taskName = grunt.cli.tasks[0]; // the name of the task from the command line (e.g. "grunt watch" => "watch")
     var indexTask = taskName === 'watchmock' ? 'index:mock' : 'index:build';
     var copyVendorJsTask = taskName === 'watchmock' ? 'copy:buildmock_vendorjs' : 'copy:build_vendorjs';
-    taskConfig.delta.gruntfile.tasks = [ 'jshint:gruntfile', 'clean:vendor', copyVendorJsTask, indexTask ];
+    taskConfig.delta.gruntfile.tasks = [ 'jshint:gruntfile', 'clean:vendor', copyVendorJsTask, 'copy:build_vendorcss', indexTask ];
     taskConfig.delta.jssrc.tasks = [ 'jshint:src', 'copy:build_appjs', indexTask ];
     taskConfig.delta.coffeesrc.tasks = [ 'coffeelint:src', 'coffee:source', 'karma:unit:run', 'copy:build_appjs', indexTask ];
     taskConfig.delta.html.tasks = [ indexTask ];
@@ -636,7 +646,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean:all', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
-        'copy:build_appjs', 'copy:build_vendorjs', 'ngAnnotate:build', 'index:build', 'karmaconfig',
+        'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'ngAnnotate:build', 'index:build', 'karmaconfig',
         'karma:continuous'
     ]);
 
@@ -644,7 +654,7 @@ module.exports = function(grunt) {
     grunt.registerTask('buildmock', [
         'clean:all', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
-        'copy:build_appjs', 'copy:buildmock_vendorjs', 'ngAnnotate:build', 'index:mock', 'karmaconfig',
+        'copy:build_appjs', 'copy:buildmock_vendorjs', 'copy:build_vendorcss', 'ngAnnotate:build', 'index:mock', 'karmaconfig',
         'karma:continuous'
     ]);
 
@@ -652,6 +662,16 @@ module.exports = function(grunt) {
     // Note - compile builds off of the build dir (look at concat:compile_js), so run grunt build before grunt compile
     grunt.registerTask('compile', [
         'less:compile', 'concat:build_css', 'copy:compile_assets', 'concat:compile_js', 'uglify', 'index:compile'
+    ]);
+
+    // The debug task is just like watch without any of the testing.
+    //  This is good for debugging issues that cause 'grunt watch' to fail due to test errors.
+    //  Just 'grunt debug' and debug your app within a browser, then go back to grunt watch once you've
+    //  fixed the problem.  You'll usually see the source of the problem right away in the console.
+    grunt.registerTask('debug', [
+        'clean:all', 'html2js', 'jshint', 'less:build',
+        'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
+        'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'ngAnnotate:build', 'index:build', 'express', 'delta'
     ]);
 
     // A utility function to get all app JavaScript sources.
